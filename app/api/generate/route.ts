@@ -13,8 +13,6 @@ export async function POST(req: Request) {
     });
   }
 
-  console.log({ opts });
-
   const zip = new JSZip();
   // Generate QR codes and add to ZIP file
   for (let i = 0; i < stringsArray.length; i++) {
