@@ -47,7 +47,6 @@ type UserInput = {
 
 const Body = () => {
   const [inputValues, setInputValues] = useState<UserInput[]>([]);
-  const [qrCode, setQrCodes] = useState<JSX.Element[]>();
   const [svgUrls, setSvgUrls] = useState<string[]>([]);
   const [downloadLink, setDownloadLink] = useState<string | null>(null);
   const [margin, setMargin] = useState<number>(1);
@@ -146,7 +145,7 @@ const Body = () => {
   };
 
   // For some reason, if handleSubmit is removed, the page will keep auto-reloading, to be investigate later
-  const handleSubmit = async (values: GenerateFormValues) => {};
+  const handleSubmit = async () => {};
 
   return (
     <div className="flex justify-center items-center flex-col w-full lg:p-0 p-4 sm:mb-28 mb-0">
@@ -164,12 +163,7 @@ const Body = () => {
                       <FormLabel>Text or URL</FormLabel>
                       <FormControl>
                         <>
-                          <Input
-                            placeholder="google.com"
-                            // value={userInput}
-                            // onChange={handleUserInput}
-                            {...field}
-                          />
+                          <Input placeholder="google.com" {...field} />
                           <Button
                             variant="outline"
                             onClick={() => handleAddField(field.value)}
@@ -244,7 +238,6 @@ const Body = () => {
                       <SelectValue placeholder="Select" />
                     </SelectTrigger>
                     <SelectContent>
-                      {/* Options for Mask Pattern */}
                       <SelectItem value="0">0</SelectItem>
                       <SelectItem value="1">1</SelectItem>
                       <SelectItem value="2">2</SelectItem>
