@@ -51,8 +51,8 @@ const Body = () => {
   const [downloadLink, setDownloadLink] = useState<string | null>(null);
   const [margin, setMargin] = useState<number>(1);
   const [width, setWidth] = useState<number>();
-  const [darkColor, setDarkColor] = useState<string>("#000000"); // Default dark color
-  const [lightColor, setLightColor] = useState<string>("#ffffff"); // Default light color
+  const [darkColor, setDarkColor] = useState<string>("#000000");
+  const [lightColor, setLightColor] = useState<string>("#ffffff");
   const [maskPattern, setMaskPattern] = useState<string>("0");
   const [errorCorrectionLevel, setErrorCorrectionLevel] =
     useState<string>("medium");
@@ -129,6 +129,11 @@ const Body = () => {
       },
       body: JSON.stringify({ stringsArray, opts }),
     });
+
+    if (response.status !== 200) {
+      console.error("Failed to generate QR codes");
+      return; // Handle the error appropriately
+    }
 
     const data = await response.json();
     setDownloadLink(data.downloadUrl); // Set the download link once available
