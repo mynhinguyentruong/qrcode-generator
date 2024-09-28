@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QR Code Generator
 
-## Getting Started
+## Overview
 
-First, run the development server:
+The QR Code Generator is a Next.js application that allows users to create and download multiple QR codes based on user-inputted text or URLs. Users can customize various settings, such as colors, margins, error correction levels, and mask patterns before generating and downloading their QR codes in a ZIP file.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+- **User-Friendly Interface**: Intuitive form for inputting text or URLs.
+- **Dynamic QR Code Generation**: Generate multiple QR codes with a single click.
+- **Customization Options**: Adjust QR code settings including:
+  - Error Correction Level (Low, Medium, Quartile, High)
+  - Mask Pattern (0 to 7)
+  - Dark and Light Color Selection
+  - Margin and Width Settings
+- **Downloadable ZIP File**: Download all generated QR codes in a convenient ZIP format.
+
+## Technologies Used
+
+- **Next.js**: A React framework for building server-rendered applications.
+- **TypeScript**: For type safety and improved developer experience.
+- **Zod**: For schema validation of user inputs.
+- **React Hook Form**: For managing form state and validation.
+- **QRCode.js**: To generate QR codes.
+- **JSZip**: For creating ZIP files.
+- **Lucide React**: For SVG icons.
+
+## Installation
+
+To get started with the QR Code Generator, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:mynhinguyentruong/qrcode-generator.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd qrcode-generator
+   ```
+
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and navigate to `http://localhost:3000` to access the application.
+
+## Usage
+
+1. Enter the text or URL you want to convert into a QR code in the input field.
+2. Click the "Add links" button to include additional inputs.
+3. Customize the QR code settings as desired.
+4. Click the "Generate" button to create the QR codes.
+5. Once generated, download all QR codes as a ZIP file using the provided link.
+
+## File Structure
+
+```plaintext
+.
+├── components
+│   ├── ui
+│   │   ├── form.tsx
+│   │   ├── input.tsx
+│   │   ├── button.tsx
+│   │   ├── select.tsx
+│   │   ├── card.tsx
+│   ├── Body.tsx
+├── pages
+│   ├── api
+│   │   ├── generate.ts
+│   ├── index.tsx
+├── styles
+│   ├── globals.css
+├── package.json
+└── README.md
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
